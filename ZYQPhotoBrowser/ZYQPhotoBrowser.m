@@ -8,7 +8,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "ZYQPhotoBrowser.h"
-#import "ZYQZoomingScrollView.h"
 #import <objc/runtime.h>
 #import <libkern/OSAtomic.h>
 
@@ -990,14 +989,14 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     if (page) {
         if ([photo underlyingImage]) {
             // Successful load
-            [page displayImage];
+            [page displayImage:[self imageForPhoto:photo]];
             [self loadAdjacentPhotosIfNecessary:photo];
         } else {
             // Failed to load
             [page displayImageFailure];
-            if ([_delegate respondsToSelector:@selector(photoBrowser:imageFailed:imageView:)]) {
+            if ([_delegate respondsToSelector:@selector(photoBrowser:imageFailed:pageView:)]) {
                 NSUInteger pageIndex = PAGE_INDEX(page);
-                [_delegate photoBrowser:self imageFailed:pageIndex imageView:page.photoImageView];
+                [_delegate photoBrowser:self imageFailed:pageIndex pageView:page];
             }
             // make sure the page is completely updated
             [page setNeedsLayout];

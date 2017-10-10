@@ -37,7 +37,7 @@
 @property (nonatomic) CGFloat maximumDoubleTapZoomScale;
 
 - (id)initWithPhotoBrowser:(ZYQPhotoBrowser *)browser;
-- (void)displayImage;
+- (void)displayImage:(UIImage *)image;
 - (void)displayImageFailure;
 - (void)setProgress:(CGFloat)progress forPhoto:(ZYQPhoto*)photo;
 - (void)setMaxMinZoomScalesForCurrentBounds;

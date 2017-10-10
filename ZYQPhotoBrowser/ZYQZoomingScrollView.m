@@ -102,7 +102,7 @@
     if (_photo != photo) {
         _photo = photo;
     }
-    [self displayImage];
+    [self displayImage:[self.photoBrowser imageForPhoto:_photo]];
 }
 
 - (void)prepareForReuse {
@@ -114,7 +114,7 @@
 #pragma mark - Image
 
 // Get and display image
-- (void)displayImage {
+- (void)displayImage:(UIImage *)img {
 	if (_photo) {
 		// Reset
 		self.maximumZoomScale = 1;
@@ -124,7 +124,6 @@
 		self.contentSize = CGSizeMake(0, 0);
 		
 		// Get image from browser as it handles ordering of fetching
-		UIImage *img = [self.photoBrowser imageForPhoto:_photo];
 		if (img) {
             // Hide ProgressView
             //_progressView.alpha = 0.0f;

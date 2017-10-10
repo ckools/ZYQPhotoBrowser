@@ -13,6 +13,7 @@
 #import "ZYQPhotoProtocol.h"
 #import "ZYQCaptionView.h"
 #import "ZYQTapDetectingImageView.h"
+#import "ZYQZoomingScrollView.h"
 
 // Delgate
 @class ZYQPhotoBrowser;
@@ -28,7 +29,7 @@
 - (NSString *)photoBrowser:(ZYQPhotoBrowser *)photoBrowser titleForPhotoAtIndex:(NSUInteger)index;
 
 - (ZYQCaptionView *)photoBrowser:(ZYQPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index;
-- (void)photoBrowser:(ZYQPhotoBrowser *)photoBrowser imageFailed:(NSUInteger)index imageView:(ZYQTapDetectingImageView *)imageView;
+- (void)photoBrowser:(ZYQPhotoBrowser *)photoBrowser imageFailed:(NSUInteger)index pageView:(ZYQZoomingScrollView *)pageView;
 @end
 
 // ZYQPhotoBrowser
