@@ -36,7 +36,7 @@
 @interface ZYQPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
 
 // Properties
-@property (nonatomic, strong) id <ZYQPhotoBrowserDelegate> delegate;
+@property (nonatomic, weak) id <ZYQPhotoBrowserDelegate> delegate;
 
 // Toolbar customization
 @property (nonatomic) BOOL displayToolbar;
